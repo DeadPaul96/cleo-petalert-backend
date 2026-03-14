@@ -21,7 +21,15 @@ if os.path.exists(cred_path):
 else:
     print("WARNING: serviceAccountKey.json not found. Firebase Auth will fail.")
 
-# Create database tables automatically
+# Create database tables automatically (Ensuring PostGIS is enabled first)
+try:
+    with engine.connect() as conn:
+        conn.execute(text("CREATE EXTENSION IF NOT EXISTS postgis;"))
+        conn.commit()
+    print("PostGIS extension checked/enabled.")
+except Exception as e:
+    print(f"Note: Could not create PostGIS extension automatically: {e}")
+
 models.Base.metadata.create_all(bind=engine)
 
 from fastapi import FastAPI, HTTPException, Depends, WebSocket, WebSocketDisconnect
