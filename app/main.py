@@ -12,14 +12,31 @@ from .database import engine, get_db
 from .storage import storage_manager
 import uuid
 
-# Initialize Firebase Admin (Needs 'serviceAccountKey.json' in backend root)
+# Initialize Firebase Admin
 cred_path = os.path.join(os.path.dirname(__file__), "..", "serviceAccountKey.json")
+
 if os.path.exists(cred_path):
     cred = credentials.Certificate(cred_path)
     auth.firebase_app = firebase_admin.initialize_app(cred)
-    print("Firebase Admin Initialized successfully.")
+    print("Firebase Admin Initialized from JSON successfully.")
+elif os.getenv("FIREBASE_PRIVATE_KEY"):
+    # Initialize from environment variables (standard for Render/Heroku)
+    try:
+        private_key = os.getenv("FIREBASE_PRIVATE_KEY").replace('\\n', '\n')
+        firebase_creds = {
+            "type": "service_account",
+            "project_id": os.getenv("FIREBASE_PROJECT_ID"),
+            "private_key": private_key,
+            "client_email": os.getenv("FIREBASE_CLIENT_EMAIL"),
+            "token_uri": "https://oauth2.googleapis.com/token",
+        }
+        cred = credentials.Certificate(firebase_creds)
+        auth.firebase_app = firebase_admin.initialize_app(cred)
+        print("Firebase Admin Initialized from environment variables successfully.")
+    except Exception as e:
+        print(f"ERROR: Failed to initialize Firebase from env vars: {e}")
 else:
-    print("WARNING: serviceAccountKey.json not found. Firebase Auth will fail.")
+    print("WARNING: No Firebase credentials found. Auth will run in dev/unverified mode.")
 
 # Create database tables automatically (Ensuring PostGIS is enabled first)
 try:
