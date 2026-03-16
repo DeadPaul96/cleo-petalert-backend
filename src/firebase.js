@@ -8,12 +8,12 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD095Aru0PSm63Fuz8gD0pXGFrQHq8LIlo",
-  authDomain: "cleo-petalert.firebaseapp.com",
-  projectId: "cleo-petalert",
-  storageBucket: "cleo-petalert.firebasestorage.app",
-  messagingSenderId: "1009293685870",
-  appId: "1:1009293685870:web:3216b2934615482098627f"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 // Initialize Firebase
