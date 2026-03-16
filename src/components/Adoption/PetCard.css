@@ -1,0 +1,123 @@
+.pet-swipe-card {
+  position: absolute;
+  width: 92%;
+  left: 4%;
+  height: 100%;
+  background: white;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(48, 213, 200, 0.2);
+  border: 1px solid rgba(48, 213, 200, 0.1);
+  touch-action: none;
+}
+
+.swipe-label {
+  position: absolute;
+  top: 40px;
+  padding: 8px 20px;
+  border: 4px solid;
+  border-radius: 10px;
+  font-size: 32px;
+  font-weight: 900;
+  z-index: 100;
+  pointer-events: none;
+  transform: rotate(-15deg);
+}
+
+.like-label {
+  left: 20px;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.dislike-label {
+  right: 20px;
+  color: var(--danger);
+  border-color: var(--danger);
+  transform: rotate(15deg);
+}
+
+.pet-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 80%;
+}
+
+.pet-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pet-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 20px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: white;
+}
+
+.pet-card-name {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.pet-card-breed {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.info-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.pet-card-controls {
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background: white;
+}
+
+.control-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.control-btn:active {
+  transform: scale(0.9);
+}
+
+.control-btn.dislike {
+  color: #FF7675;
+  background: #FFF5F5;
+}
+
+.control-btn.like {
+  color: var(--primary);
+  background: #F0FFFE;
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Cleo PetAlert</string>
+    <string name="title_activity_main">Cleo PetAlert</string>
+    <string name="package_name">com.cleo.petalert</string>
+    <string name="custom_url_scheme">com.cleo.petalert</string>
+</resources>

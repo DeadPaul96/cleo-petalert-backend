@@ -1,0 +1,129 @@
+:root {
+  --primary: #30d5c8; /* Turquoise */
+  --primary-light: #60e6db;
+  --primary-dark: #24a299;
+  --bg-white: #ffffff;
+  --bg-offwhite: #f8f9fa;
+  --text-main: #2d3436;
+  --text-muted: #636e72;
+  --danger: #FF4757;
+  --warning: #FFA502;
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --radius-lg: 24px;
+  --radius-md: 12px;
+  --shadow-soft: 0 10px 25px rgba(48, 213, 200, 0.1);
+  --card-bg: #ffffff;
+  --modal-bg: #ffffff;
+  --input-bg: #f1f5f9;
+  --border-color: #e2e8f0;
+  --header-bg: #ffffff;
+  --bottom-bar-bg: #ffffff;
+  --sheet-bg: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* ABSOLUTE BLACK MODE - 100% BLACK */
+    --bg-white: #000000;
+    --bg-offwhite: #0a0a0a;
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
+    --card-bg: #0a0a0a;
+    --modal-bg: #000000;
+    --input-bg: #111111;
+    --border-color: #1a1a1a;
+    --header-bg: #000000;
+    --bottom-bar-bg: #000000;
+    --sheet-bg: #0a0a0a;
+    --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.9);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Inter", -apple-system, sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-white);
+  color: var(--text-main);
+  overflow: hidden;
+}
+
+/* Safe Area Protection like Instagram */
+.mobile-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-white);
+  padding-top: var(--safe-area-top); /* Added safe area top padding */
+}
+
+.main-content-scrollable {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--bg-white);
+}
+
+/* RECTANGULAR BUTTONS */
+.btn {
+  padding: 14px 24px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary { background-color: var(--primary); color: #000; }
+.btn-outline { background-color: transparent; border: 2px solid var(--primary); color: var(--primary); }
+
+input, textarea {
+  background: var(--input-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 16px;
+  border: 1px solid var(--border-color);
+}
+
+/* Map Visibility Fixes */
+.leaflet-container {
+  height: 100% !important;
+  width: 100% !important;
+  z-index: 1;
+  border-radius: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .leaflet-tile-pane {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+  }
+}
+
+.turq-text { color: var(--primary) !important; }
+.turq-glow { box-shadow: 0 4px 15px rgba(48, 213, 200, 0.15) !important; }

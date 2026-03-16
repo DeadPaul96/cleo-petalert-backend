@@ -1,63 +1,16 @@
-# Cleo Backend (FastAPI + Mojo)
+# React + Vite
 
-Welcome to the high-performance backend architecture for Cleo PetAlert.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Setting Up Mojo on Windows (via WSL)
+Currently, two official plugins are available:
 
-Mojo is a compiled language designed for AI and high-performance systems. Currently, native Windows support is under development. Therefore, the official and most robust way to use Mojo on Windows is through **Windows Subsystem for Linux (WSL)**.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-### Prerequisites
-1. Ensure you have WSL 2 installed (Search for "Turn Windows features on or off" -> Check "Windows Subsystem for Linux").
-2. Install a Linux distribution (e.g., Ubuntu) from the Microsoft Store.
+## React Compiler
 
-### Installation Steps (inside your WSL Ubuntu terminal)
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-1. **Install Curl (if not present):**
-   ```bash
-   sudo apt update && sudo apt install curl
-   ```
+## Expanding the ESLint configuration
 
-2. **Install the Modular CLI:**
-   ```bash
-   curl -s https://get.modular.com | sh -
-   ```
-
-3. **Install the Mojo SDK:**
-   ```bash
-   modular install mojo
-   ```
-
-4. **Update your Environment Variables:**
-   The installation will provide you with specific `export PATH` commands to run. They usually look like this:
-   ```bash
-   echo 'export MODULAR_HOME="$HOME/.modular"' >> ~/.bashrc
-   echo 'export PATH="$MODULAR_HOME/pkg/packages.modular.com_mojo/bin:$PATH"' >> ~/.bashrc
-   source ~/.bashrc
-   ```
-
-### Running the Project
-
-**Option 1: Pure Python (Development / Testing UI)**
-If you just want to test the FastAPI endpoints without compiling Mojo yet, you can run it directly in Windows:
-```bash
-pip install -r requirements.txt
-uvicorn app.main:app --reload
-```
-
-**Option 2: Full Stack (API + PostGIS Database)**
-To run the complete environment, including the specialized PostgreSQL database for map coordinates, you must have Docker installed.
-
-```bash
-cd cleo-backend
-docker-compose up --build
-```
-This will start your API at `http://localhost:8000` and a fresh PostGIS database simultaneously.
-
-**Compiling Mojo (WSL or Linux required)**
-Once Mojo is installed in WSL/Linux, compile the `.mojo` files inside the `mojo_core` directory into binary executables that the Python FastAPI server will call.
-
-```bash
-cd mojo_core
-mojo build image_compressor.mojo -o image_compressor_bin
-```
-
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

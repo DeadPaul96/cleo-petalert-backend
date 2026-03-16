@@ -1,0 +1,100 @@
+.splash-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 5000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-content {
+  text-align: center;
+}
+
+.logo-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.splash-title {
+  font-size: 48px;
+  color: var(--primary);
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.splash-tagline {
+  font-size: 16px;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.splash-footer {
+  position: absolute;
+  bottom: 80px;
+  width: 200px;
+}
+
+.loader-bar {
+  height: 4px;
+  background: var(--bg-offwhite);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.loader-progress {
+  height: 100%;
+  width: 0%;
+  background: var(--primary);
+  animation: progress 2.5s ease-in-out forwards;
+}
+
+@keyframes progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-in { animation: fade-in 0.8s ease-out forwards; }
+.fade-out { animation: fade-out 0.8s ease-in forwards; }
+
+.splash-mascot {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+}
+
+/* Login mascot specific styles */
+.login-mascot-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.login-mascot {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  background: var(--bg-offwhite);
+  border-radius: 25px;
+  padding: 10px;
+  border: 1px solid #f0f0f0;
+}
