@@ -1,5 +1,11 @@
 {
   "appId": "com.cleo.petalert",
   "appName": "Cleo PetAlert",
-  "webDir": "dist"
+  "webDir": "dist",
+  "plugins": {
+    "FirebaseAuthentication": {
+      "skipNativeAuth": false,
+      "providers": ["google.com"]
+    }
+  }
 }
