@@ -14,7 +14,9 @@ const Register = ({ onRegister, onBackToLogin }) => {
   const handleSocialLogin = async (provider) => {
     setLoading(true);
     try {
-      const result = await FirebaseAuthentication.signInWithGoogle();
+      const result = await FirebaseAuthentication.signInWithGoogle({
+        serverClientId: '1009293685870-0poqi9jvnii0mau2771skekfiu0plror.apps.googleusercontent.com'
+      });
       
       if (!result.credential?.idToken) {
         throw new Error("No idToken received from native Google Register");
